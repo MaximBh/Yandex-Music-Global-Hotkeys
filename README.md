@@ -7,7 +7,7 @@ The standard Yandex Music's hotkeys dont't work when the app is minimized, but t
 - Next track
 - Previous track
 - Configure custom hotkeys
-- Reset hotkeys via 'r' or command line argument `--reset`
+- Reset hotkeys via 'r'
 
 ## Installation
 
@@ -27,4 +27,5 @@ python main.py        # Start the script
 ```
 ## Notes:
 - Run as administrator for global hotkeys to work (recommended).
+
 - Hotkeys are saved in hotkeys_config.json.
