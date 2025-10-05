@@ -17,8 +17,8 @@ customizable hotkeys in any other app.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/MaximBh/Yandex_Music_Global_Hotkeys.git
-cd Yandex_Music_Global_Hotkeys
+git clone https://github.com/MaximBh/Yandex-Music-Global-Hotkeys.git
+cd Yandex-Music-Global-Hotkeys
 ```
 
 2. Install dependencies:
@@ -67,3 +67,4 @@ Create shortcuts with the following targets:
 - Run as administrator for global hotkeys to work (recommended).
 
 - Hotkeys are saved in hotkeys_config.json.
+
