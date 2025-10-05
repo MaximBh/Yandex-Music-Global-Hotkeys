@@ -13,15 +13,18 @@ APPCOMMAND_MEDIA_PLAY_PAUSE = 14
 
 CONFIG_FILE = "hotkeys_config.json"
 
+
 def enum_windows_callback(hwnd, windows):
     title = win32gui.GetWindowText(hwnd)
     if "Яндекс Музыка" in title:
         windows.append(hwnd)
 
+
 def find_yandex_music_window():
     windows = []
     win32gui.EnumWindows(enum_windows_callback, windows)
     return windows[0] if windows else None
+
 
 def send_media_command(command):
     hwnd = find_yandex_music_window()
@@ -30,11 +33,13 @@ def send_media_command(command):
     else:
         print("Yandex Music window not found")
 
+
 default_hotkeys = {
     "Play/Pause": "ctrl+alt+space",
     "Next": "ctrl+alt+right",
     "Previous": "ctrl+alt+left"
 }
+
 
 def configure_hotkeys():
     print("\nConfigure hotkeys for Yandex Music control.")
@@ -47,6 +52,7 @@ def configure_hotkeys():
         json.dump(user_hotkeys, f, indent=4, ensure_ascii=False)
     return user_hotkeys
 
+
 def register_hotkeys(user_hotkeys):
     keyboard.add_hotkey(user_hotkeys["Play/Pause"], lambda: send_media_command(APPCOMMAND_MEDIA_PLAY_PAUSE))
     keyboard.add_hotkey(user_hotkeys["Next"], lambda: send_media_command(APPCOMMAND_MEDIA_NEXTTRACK))
@@ -55,23 +61,22 @@ def register_hotkeys(user_hotkeys):
     for action, hotkey in user_hotkeys.items():
         print(f"{hotkey} = {action}")
 
+
 def reset_hotkeys():
     keyboard.clear_all_hotkeys()
     user_hotkeys = configure_hotkeys()
     register_hotkeys(user_hotkeys)
 
-# --- Main ---
-reset_mode = "--reset" in sys.argv
 
-if reset_mode or not os.path.exists(CONFIG_FILE):
+# --- Main ---
+if not os.path.exists(CONFIG_FILE):
     user_hotkeys = configure_hotkeys()
 else:
     with open(CONFIG_FILE, "r", encoding="utf-8") as f:
         user_hotkeys = json.load(f)
 
 register_hotkeys(user_hotkeys)
-keyboard.add_hotkey("r", reset_hotkeys)
+keyboard.add_hotkey("ctrl+alt+r", reset_hotkeys)
 
-print("\nPress 'r' at any time to reset hotkeys.")
-print("Press Ctrl+C to exit.")
+print("\nPress 'ctrl+alt+r' at any time to reset hotkeys.")
 keyboard.wait()
