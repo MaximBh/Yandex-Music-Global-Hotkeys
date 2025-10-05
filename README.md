@@ -10,7 +10,7 @@ customizable hotkeys in any other app.
 - Previous track
 - Configure custom hotkeys
 - Reset hotkeys via 'ctrl+alt+r'
-- Automatic hotkey activation when **Yandex Music.exe** is launched
+- Automatic hotkey activation when **Yandex Music** is launched
 
 ## Installation
 
@@ -67,4 +67,5 @@ Create shortcuts with the following targets:
 - Run as administrator for global hotkeys to work (recommended).
 
 - Hotkeys are saved in hotkeys_config.json.
+
 
