@@ -21,17 +21,17 @@ git clone https://github.com/MaximBh/Yandex-Music-Global-Hotkeys.git
 cd Yandex-Music-Global-Hotkeys
 ```
 
-2. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-3. Create a virtual environment (optional):
+2. Create a virtual environment:
 
 ```bash
 python -m venv venv
 venv\Scripts\activate  # Windows
+```
+
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
 ```
 
 ## Usage:
@@ -67,5 +67,6 @@ Create shortcuts with the following targets:
 - Run as administrator for global hotkeys to work (recommended).
 
 - Hotkeys are saved in hotkeys_config.json.
+
 
 
