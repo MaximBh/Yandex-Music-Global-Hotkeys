@@ -1,6 +1,6 @@
 # Yandex Music Global Hotkeys
 
-The standard Yandex Music's hotkeys dont't work when the app is minimized, but this script allows you to use
+The standard Yandex Music's hotkeys don't work when the app is minimized, but this script allows you to use
 customizable hotkeys in any other app.
 
 ## Features
@@ -10,55 +10,28 @@ customizable hotkeys in any other app.
 - Previous track
 - Configure custom hotkeys
 - Reset hotkeys via 'ctrl+alt+r'
-- Automatic hotkey activation when **Yandex Music** is launched
+- Automatic hotkey activation and deactivation with interface in console when **Yandex Music** is launched and closed
 
-## Installation
+## Installation and manually usage
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/MaximBh/Yandex-Music-Global-Hotkeys.git
-cd Yandex-Music-Global-Hotkeys
-```
-
-2. Create a virtual environment:
+Run:
 
 ```bash
-python -m venv venv
-venv\Scripts\activate  # Windows
+start_watcher.bat
 ```
 
-3. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Usage:
-
-Run manually:
-
-```bash
-python main.py        # Start the script
-```
-
-Or use the automatic watcher:
-
-```bash
-python watcher.py       # Start the script
-```
-
-## Autostart on Windows
+## Autostart when Yandex Music launches
 
 To make the watcher run automatically when your PC starts:
 
 Press Win + R, type:
 shell:startup
 
-Create shortcuts with the following targets:
+Create shortcut with the following target:
 
-"C:\Path\To\Python\pythonw.exe"
-"C:\Path\To\Yandex-Music-Global-Hotkeys\start_watcher.bat"
+```bash
+C:\Path\To\Yandex-Music-Global-Hotkeys\start_watcher.bat
+```
 
 ## Notes:
 
@@ -67,6 +40,3 @@ Create shortcuts with the following targets:
 - Run as administrator for global hotkeys to work (recommended).
 
 - Hotkeys are saved in hotkeys_config.json.
-
-
-

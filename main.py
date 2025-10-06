@@ -3,7 +3,6 @@ import win32gui
 import win32api
 import json
 import os
-import sys
 
 WM_APPCOMMAND = 0x0319
 
@@ -27,6 +26,7 @@ def find_yandex_music_window():
 
 
 def send_media_command(command):
+    """sending command."""
     hwnd = find_yandex_music_window()
     if hwnd:
         win32api.SendMessage(hwnd, WM_APPCOMMAND, hwnd, command << 16)
@@ -42,6 +42,7 @@ default_hotkeys = {
 
 
 def configure_hotkeys():
+    """configuration hotkeys."""
     print("\nConfigure hotkeys for Yandex Music control.")
     print("Press Enter to keep the default value.\n")
     user_hotkeys = {}
@@ -54,6 +55,7 @@ def configure_hotkeys():
 
 
 def register_hotkeys(user_hotkeys):
+    """registration hotkeys."""
     keyboard.add_hotkey(user_hotkeys["Play/Pause"], lambda: send_media_command(APPCOMMAND_MEDIA_PLAY_PAUSE))
     keyboard.add_hotkey(user_hotkeys["Next"], lambda: send_media_command(APPCOMMAND_MEDIA_NEXTTRACK))
     keyboard.add_hotkey(user_hotkeys["Previous"], lambda: send_media_command(APPCOMMAND_MEDIA_PREVIOUSTRACK))
@@ -75,6 +77,8 @@ else:
     with open(CONFIG_FILE, "r", encoding="utf-8") as f:
         user_hotkeys = json.load(f)
 
+print(
+    "Watcher is running in the background.\nThis console was opened automatically and will be closed along with Yandex Music.")
 register_hotkeys(user_hotkeys)
 keyboard.add_hotkey("ctrl+alt+r", reset_hotkeys)
 
