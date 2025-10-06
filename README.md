@@ -35,8 +35,9 @@ C:\Path\To\Yandex-Music-Global-Hotkeys\start_watcher.bat
 
 ## Notes:
 
-- To make the global hotkeys work, manually play or pause a track in Yandex Music once
+- To make the global hotkeys work, manually play or pause a track in Yandex Music once.
 
 - Run as administrator for global hotkeys to work (recommended).
 
 - Hotkeys are saved in hotkeys_config.json.
+
